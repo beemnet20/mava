@@ -8,6 +8,6 @@ def radioButtonGroup(id, options):
         options=options,
         value="DRAM",
         inline=True,
-        label_class_name="btn rounded-0 border",
+        label_class_name="btn btn-outline-primary",
         label_checked_class_name="bg-primary text-white",
     )
