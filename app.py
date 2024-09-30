@@ -2,17 +2,31 @@ from dash import Dash, html, dcc, callback, Output, Input
 import plotly.express as px
 import pandas as pd
 import dash_bootstrap_components as dbc
-import plotly.graph_objects as go
+
 
 specs = pd.read_csv("./data/product_specs.csv")
 
-units_dict = dict(starting_price="dollars", DRAM="GB",
+units_dict = dict(starting_price="USD", DRAM="GB",
                   base_storage="GB", display_resolution_PPI="Pixels per inch",
                   display_resolution_PPD="pixels per degree",
                   refresh_rate="Hz", color_gamut="% of sRGB",
                   battery_run_time="hours",
                   FOV="degrees"
                   )
+
+
+def format_var_str(input_str):
+    formatted_str = input_str.replace("_", " ")
+    words = formatted_str.split()
+    if not words[0].isupper():
+        words[0]=words[0].capitalize()
+    return " ".join(words)
+
+
+radio_options = [{"label": format_var_str(x), "value": x} for x
+                                     in
+                                     units_dict.keys()]
+
 
 app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.title = "MAVA"
@@ -53,9 +67,7 @@ app.layout = [
                         dbc.RadioItems(
                             id="spec_name",
                             class_name="p-0",
-                            options=[{"label": x if x.isupper() else x.replace("_", " ").capitalize(), "value": x} for x
-                                     in
-                                     units_dict.keys()],
+                            options=radio_options,
                             value="starting_price",  # Default selected value
                             inline=False,  # Stacks vertically
                             label_class_name="btn rounded-0 w-100",
@@ -95,8 +107,8 @@ def update_graph(value):
         return fig
 
     df = specs[['product_id', 'product_name', value]]
-    fig= px.bar(df, x='product_name', y=value)
-    fig.update_layout(plot_bgcolor="white")
+    fig= px.bar(df, x='product_name', y=value, text = value)
+    fig.update_layout(plot_bgcolor="white", xaxis_title=None, yaxis_title=None, title=f"{format_var_str(value)} ({units_dict[value]})")
     return fig
 
 
