@@ -1,0 +1,5 @@
+product_id,product_name,starting_price,manufacturer,SoC,DRAM,base_storage,display_resolution_PPI,display_resolution_PPD,display_resolution,refresh_rate,FOV_horizontal,FOV_vertical,optics,color_gamut,face_eye_tracking,hand_tracking,battery_run_time
+1,Quest 3S,299.99,Meta,Snapdragon XR2 Gen 2,8,128,773,20,1832 x 1920,90,96,90,"Frensel lens, 3 position IAD adjust",100,No,Yes,2.5
+2,Quest 3,499.99,Meta,Snapdragon XR2 Gen 2,8,128,1218,25,2064 x 2208,72,110,96,"Pancake lens, continuous IAD",100,No,Yes,2.2
+3,Quest 2,199.99,Meta,Snapdragon XR2 Gen 1,6,128,773,20,1832 x 1920,90,90,90,"Frensel lens, 3 position IAD adjust",100,No,Yes,2
+4,Quest Pro,999.99,Meta,Snapdragon XR2+ Gen1,12,256,1058,22,1800 x 1920,90,106,96,"Pancake lens, continuous IAD with slider",129,Yes,Yes,2.5
