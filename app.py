@@ -7,6 +7,9 @@ app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], use_pages=True)
 app.title = "MAVA"
 server = app.server
 
+
+
+
 app.layout = html.Div([
     dbc.Navbar(
         children=[
