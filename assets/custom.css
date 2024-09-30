@@ -1,0 +1,12 @@
+.radio-button-group > .form-check {
+padding: 0 !important;
+margin: 0 !important;
+
+input {
+    display: none;
+}
+
+}
+.radio-button-group {
+width: fit-content;
+}
