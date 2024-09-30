@@ -61,7 +61,7 @@ def update_graph(value):
 
         fig = px.bar(df_melted, x='product_name', y='Value', color='FOV',
                      barmode='group')
-        fig.update_layout(plot_bgcolor="white")
+        fig.update_layout(plot_bgcolor="white", title = "Field of view")
 
         return fig
 
