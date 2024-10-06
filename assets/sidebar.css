@@ -1,0 +1,15 @@
+#sidebar-container.collapsed{
+    width: 50px !important;
+}
+
+#sidebar-container {
+   width: 100%;
+}
+
+#sidebar-content.collapsed {
+ display: none !important;
+}
+
+#sidebar-content {
+  display: block;
+}

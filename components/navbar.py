@@ -1,23 +1,24 @@
 import dash_bootstrap_components as dbc
 from dash import html
 
-navbar = dbc.NavbarSimple(
-    children=[
-        dbc.NavItem(dbc.NavLink("GitHub", href="https://github.com/beemnet20/mava")),
-    ],
-    brand=html.A(
-        dbc.Row(
-            [
-                dbc.Col(html.Img(src="../assets/images/logo.svg", height="30px")),
-                dbc.Col(dbc.NavbarBrand("MAVA", class_name="ms-2")),
-            ],
-            align="center",
-            class_name="g-0",
-        ),
-        href="#",
-        style={"textDecoration": "none"}
-    ),
-    brand_href="/",
-    color="primary",
-    dark=True,
-)
+
+def navbar():
+    return dbc.Navbar(
+        dbc.Container(
+            class_name="ms-0",
+            children=[html.Div(
+                dbc.Row(
+                    [
+                        dbc.Col(dbc.NavbarBrand(html.Span(
+                            [html.Img(src="../assets/images/logo.svg", className="mx-2", height="30px"), "MAVA"]),
+                                                class_name="ms-2", href="/")),
+                    ],
+                    align="center",
+                    class_name="g-0",
+                ),
+                style={"textDecoration": "none"}
+            )]),
+        color="primary",
+        dark=True,
+        style={"height": "50px"}
+    )
